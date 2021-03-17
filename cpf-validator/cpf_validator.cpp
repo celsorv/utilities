@@ -14,13 +14,13 @@
 
 using namespace std;
 
-bool CpfValidator::isValid(char* number) const {
+bool CpfValidator::isValid(const char* number) {
 
     if (strlen(number) != 11) return false;
 
     for (char cycle = 0; cycle < 2; cycle++) {
 
-        char limit_index = (cycle == 0 ? 9 : 10);
+        char limit_index = cycle == 0 ? 9 : 10;
         char base_weight = limit_index + 1;
 
         int temp = 0;
@@ -40,7 +40,7 @@ bool CpfValidator::isValid(char* number) const {
     return true;
 }
 
-char CpfValidator::valueOf(char c) const {
+char CpfValidator::valueOf(const char c) {
     
     // if c less than '0' or c greater than '9'
     if (c < 48 || c > 57) throw "it's not a number!";
