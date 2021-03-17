@@ -14,7 +14,7 @@
 
 using namespace std;
 
-bool CpfValidator::isValid(char* number) {
+bool CpfValidator::isValid(char* number) const {
 
     if (strlen(number) != 11) return false;
 
@@ -40,7 +40,7 @@ bool CpfValidator::isValid(char* number) {
     return true;
 }
 
-char CpfValidator::valueOf(char c) {
+char CpfValidator::valueOf(char c) const {
     
     // if c less than '0' or c greater than '9'
     if (c < 48 || c > 57) throw "it's not a number!";
