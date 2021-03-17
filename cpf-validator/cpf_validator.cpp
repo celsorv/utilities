@@ -19,19 +19,19 @@ bool CpfValidator::isValid(char* number) {
 
     if (strlen(number) != 11) return false;
 
-    for (int cycle = 0; cycle < 2; cycle++) {
+    for (char cycle = 0; cycle < 2; cycle++) {
 
-        int limit_index = cycle == 0 ? 9 : 10;
-        int base_weight = limit_index + 1;
+        char limit_index = (cycle == 0 ? 9 : 10);
+        char base_weight = limit_index + 1;
 
         int temp = 0;
 
-        for (int index = 0; index < limit_index; index++) {
+        for (char index = 0; index < limit_index; index++) {
             temp += valueOf(number[index]) * (base_weight - index);
         }
 
         temp %= 11;
-        int digit = temp < 2 ? 0 : 11 - temp;
+        char digit = temp < 2 ? 0 : 11 - temp;
 
         if (digit != valueOf(number[limit_index]))
             return false;
