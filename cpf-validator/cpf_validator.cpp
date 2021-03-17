@@ -9,7 +9,6 @@
  */
 
 #include <iostream>
-#include <cctype>
 #include <cstring>
 #include "cpf_validator.h"
 
@@ -42,6 +41,9 @@ bool CpfValidator::isValid(char* number) {
 }
 
 char CpfValidator::valueOf(char c) {
-    if (!isdigit(c)) throw "it's not a number!";
+    
+    // if c less than '0' or c greater than '9'
+    if (c < 48 || c > 57) throw "it's not a number!";
+
     return c - '0';
 }
