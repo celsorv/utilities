@@ -14,10 +14,10 @@
 class CpfValidator
 {
 public:
-    bool isValid(char* number) const;
+    bool isValid(const char* number);
 
 private:
-    char valueOf(char c) const;
+    char valueOf(const char c);
 
 };
 
